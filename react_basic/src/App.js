@@ -1,37 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-// import * as Constants from './constants.js' ;
-// import { user } from './constants';
-
-// Import all constants
 import * as Constants from './constants';
-
-// Usage in code
-const url = Constants.POSTURL;
-const loadingIcon = Constants.LoadingWheel;
-
-
-
-const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
-];
-
-const listItems = products.map(product =>
-  <li
-    key={product.id}
-    style={{
-      color: product.isFruit ? 'magenta' : 'darkgreen'
-    }}
-  >
-    {product.title}
-  </li>
-);
-
-<img className="avatar" />
-
-
+import getListItems from './getListItems';
 
 function MyButton() {
   function handleClick() {
@@ -45,17 +15,13 @@ function MyButton() {
   );
 }
 
-
 function App() {
   return (
     <div className="App">
-
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
-        <p>
-        Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>Edit <code>src/App.js</code> and save to reload.</p>
 
         <MyButton />
 
@@ -68,27 +34,22 @@ function App() {
           Learn React
         </a>    
 
-    <h1>{user.name}</h1>
-    <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />            
+        <h1>{Constants.user.name}</h1>
+        <img
+          className="avatar"
+          src={Constants.user.imageUrl}
+          alt={'Photo of ' + Constants.user.name}
+          style={{
+            width: Constants.user.imageSize,
+            height: Constants.user.imageSize
+          }}
+        />            
 
-      <ul>{listItems}</ul>
-
+        {/* Render list items */}
+        <ul>{getListItems()}</ul>
       </header>
-
-
-      
     </div>
   );
-
-  
 }
 
 export default App;
