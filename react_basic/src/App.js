@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Click_Count_Button from './Click_Count_Button';
 import * as Constants from './constants';
 import getListItems from './getListItems';
 
@@ -32,7 +33,10 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>    
+        </a>
+
+        {/* Add Click_Count_Button below the Learn React link */}
+        <Click_Count_Button />
 
         <h1>{Constants.user.name}</h1>
         <img
@@ -45,7 +49,6 @@ function App() {
           }}
         />            
 
-        {/* Render list items */}
         <ul>{getListItems()}</ul>
       </header>
     </div>
